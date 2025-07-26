@@ -150,7 +150,7 @@ print(f"Predicted sentiment: {reviewPrediction}")
 - **Max features**: Limited to 10,000 most frequent words
 - **Bias term**: Added automatically during training
 
-## 🚀 Usage
+## Usage
 
 1. **Environment Setup**:
    ```bash
