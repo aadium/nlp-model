@@ -21,8 +21,8 @@ nlp-model/
 │       ├── train_data.tsv  # Training data (1,200 samples)
 │       ├── valid_data.tsv  # Validation data
 │       └── test_data.tsv   # Test data
-├── figures/
-│   └── nlls.png           # Training/validation loss visualization
+└── figures/
+    └── nlls.png           # Training/validation loss visualization
 ```
 
 ## Core Functions (`functions.py`)
