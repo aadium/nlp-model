@@ -23,7 +23,6 @@ nlp-model/
 │       └── test_data.tsv   # Test data
 ├── figures/
 │   └── nlls.png           # Training/validation loss visualization
-└── __pycache__/           # Python cache files
 ```
 
 ## 🔧 Core Functions (`functions.py`)
