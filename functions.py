@@ -65,7 +65,7 @@ def error_rate(y: np.ndarray, y_hat: np.ndarray):
         if y_i != y_hat_i: misclassified += 1
     return misclassified / N
 
-def train_and_val(X_train: np.ndarray, Y_train: np.ndarray, X_val: np.ndarray, Y_val: np.ndarray, num_epochs: int, lr: float, visualize_nlls: bool = True):
+def train_evaluate_model(X_train: np.ndarray, Y_train: np.ndarray, X_val: np.ndarray, Y_val: np.ndarray, num_epochs: int, lr: float, visualize_nlls: bool = True):
     theta0 = np.zeros((X_train.shape[1], 1))  # initialize theta to zeros
 
     # train the model

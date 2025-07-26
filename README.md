@@ -55,7 +55,7 @@ Implements stochastic gradient descent training:
 - **Returns**: History of parameter values after each epoch
 - Processes one sample at a time for parameter updates
 
-#### `train_and_val(X_train, Y_train, X_val, Y_val, num_epochs, lr, visualize_nlls=True)`
+#### `train_evaluate_model(X_train, Y_train, X_val, Y_val, num_epochs, lr, visualize_nlls=True)`
 Complete training pipeline with validation:
 - Trains the model and tracks performance on both training and validation sets
 - Implements early stopping based on validation performance
