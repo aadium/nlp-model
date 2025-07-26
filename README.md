@@ -2,11 +2,11 @@
 
 A machine learning project implementing logistic regression for binary sentiment analysis on movie reviews using Python and scikit-learn.
 
-## 📋 Overview
+## Overview
 
 This repository contains a complete sentiment analysis pipeline that classifies movie reviews as positive (1) or negative (0) using logistic regression. The model is trained from scratch using gradient descent with custom implementations of the objective function and gradient calculations.
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 nlp-model/
@@ -25,7 +25,7 @@ nlp-model/
 │   └── nlls.png           # Training/validation loss visualization
 ```
 
-## 🔧 Core Functions (`functions.py`)
+## Core Functions (`functions.py`)
 
 ### Mathematical Functions
 
@@ -87,7 +87,7 @@ Creates training visualization:
 - Saves plot as `./figures/nlls.png`
 - Helps identify overfitting and convergence patterns
 
-## 📊 Jupyter Notebook (`nlp_train.ipynb`)
+## Jupyter Notebook (`nlp_train.ipynb`)
 
 The notebook implements a complete machine learning workflow:
 
@@ -131,7 +131,7 @@ print(f"True sentiment: {Y_test[0]}")
 print(f"Predicted sentiment: {review_prediction}")
 ```
 
-## 📈 Dataset Details
+## Dataset Details
 
 ### Data Format
 - **TSV files**: Tab-separated values with two columns
@@ -172,7 +172,7 @@ print(f"Predicted sentiment: {review_prediction}")
    predictions = fn.predict(X_test, output['best_theta'])
    ```
 
-## 📊 Model Performance
+## Model Performance
 
 Based on the notebook output:
 - **Best Epoch**: 11 (early stopping prevents overfitting)
@@ -185,16 +185,15 @@ Based on the notebook output:
 
 The model shows signs of overfitting (perfect training accuracy vs 86.75% validation accuracy), which is common in text classification with limited data.
 
-## 🔍 Key Features
+## Key Features
 
 - **From-scratch Implementation**: Custom logistic regression without external ML libraries
 - **Stochastic Gradient Descent**: Sample-by-sample parameter updates
 - **Early Stopping**: Prevents overfitting using validation performance
 - **Comprehensive Evaluation**: Multiple metrics and visualizations
 - **Modular Design**: Reusable functions for different datasets
-- **Educational Focus**: Clear separation of concerns for learning purposes
 
-## 🎯 Learning Objectives
+## Learning Objectives
 
 This project demonstrates:
 - Binary classification with logistic regression
@@ -204,7 +203,7 @@ This project demonstrates:
 - Overfitting detection and mitigation
 - Scientific computing with NumPy and pandas
 
-## 📋 Requirements
+## Requirements
 
 - Python 3.x
 - NumPy
@@ -213,9 +212,9 @@ This project demonstrates:
 - matplotlib
 - Jupyter Notebook
 
-## 📝 Notes
+## Notes
 
 - The model uses binary bag-of-words features (word presence, not frequency)
 - Numerical stability is ensured through probability clipping in the objective function
 - The visualization helps identify convergence and overfitting patterns
-- This is an educational implementation; production systems would use optimized libraries like scikit-learn
+- This is an educational implementation built to understand logistic regression's inner functioning
