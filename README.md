@@ -94,25 +94,25 @@ The notebook implements a complete machine learning workflow:
 ### 1. Data Loading and Preprocessing
 ```python
 # Load datasets
-train_data = pd.read_csv('./data/full/train_data.tsv', sep='\t', header=None)
-val_data = pd.read_csv('./data/full/valid_data.tsv', sep='\t', header=None)
-test_data = pd.read_csv('./data/full/test_data.tsv', sep='\t', header=None)
+trainData = pd.read_csv('./data/full/train_data.tsv', sep='\t', header=None)
+valData = pd.read_csv('./data/full/valid_data.tsv', sep='\t', header=None)
+testData = pd.read_csv('./data/full/test_data.tsv', sep='\t', header=None)
 
 # Feature extraction using bag-of-words
 cvect = CountVectorizer(binary=True, max_features=10000)
-X_train = cvect.fit_transform(train_data.iloc[:, 1])  # Text reviews
-Y_train = train_data.iloc[:, 0].values.reshape(-1, 1)  # Labels (0/1)
+xTrain = cvect.fit_transform(trainData.iloc[:, 1])  # Text reviews
+yTrain = trainData.iloc[:, 0].values.reshape(-1, 1)  # Labels (0/1)
 ```
 
 ### 2. Model Training
 ```python
 # Training parameters
-num_epochs = 1000
+numEpochs = 1000
 lr = 0.005
 
 # Train model with validation
-output = fn.train_and_val(X_train, Y_train, X_val, Y_val, 
-                         num_epochs, lr, visualize_nlls=True)
+output = fn.train_evaluate_model(xTrain, yTrain, xVal, yVal, 
+                                numEpochs, lr, visualize_nlls=True)
 ```
 
 ### 3. Model Evaluation
@@ -126,9 +126,9 @@ The notebook evaluates model performance on multiple metrics:
 Demonstrates model predictions on individual reviews:
 ```python
 # Example prediction on first test sample
-review_prediction = fn.predict(X_test[0], output['best_theta'])
-print(f"True sentiment: {Y_test[0]}")
-print(f"Predicted sentiment: {review_prediction}")
+reviewPrediction = fn.predict(xTest[0], output['best_theta'])
+print(f"True sentiment: {yTest[0]}")
+print(f"Predicted sentiment: {reviewPrediction}")
 ```
 
 ## Dataset Details
@@ -165,37 +165,19 @@ print(f"Predicted sentiment: {review_prediction}")
    import functions as fn
    
    # Train with custom parameters
-   output = fn.train_and_val(X_train, Y_train, X_val, Y_val, 
-                            num_epochs=500, lr=0.01)
+   output = fn.train_evaluate_model(xTrain, yTrain, xVal, yVal, 
+                                   numEpochs=500, lr=0.01)
    
    # Make predictions
-   predictions = fn.predict(X_test, output['best_theta'])
+   predictions = fn.predict(xTest, output['best_theta'])
    ```
 
 ## Model Performance
 
-Based on the notebook output:
-- **Best Epoch**: 11 (early stopping prevents overfitting)
-- **Training NLL**: 0.0664
-- **Validation NLL**: 0.3216
-- **Training Error**: 0.00% (perfect fit on training data)
-- **Validation Error**: 13.50%
-- **Test Error**: 14.25%
-- **Training Time**: ~113 seconds
-
 The model shows signs of overfitting (perfect training accuracy vs 86.75% validation accuracy), which is common in text classification with limited data.
-
-## Key Features
-
-- **From-scratch Implementation**: Custom logistic regression without external ML libraries
-- **Stochastic Gradient Descent**: Sample-by-sample parameter updates
-- **Early Stopping**: Prevents overfitting using validation performance
-- **Comprehensive Evaluation**: Multiple metrics and visualizations
-- **Modular Design**: Reusable functions for different datasets
 
 ## Learning Objectives
 
-This project demonstrates:
 - Binary classification with logistic regression
 - Gradient descent optimization
 - Text preprocessing and feature extraction
@@ -203,18 +185,9 @@ This project demonstrates:
 - Overfitting detection and mitigation
 - Scientific computing with NumPy and pandas
 
-## Requirements
-
-- Python 3.x
-- NumPy
-- pandas
-- scikit-learn
-- matplotlib
-- Jupyter Notebook
-
 ## Notes
 
-- The model uses binary bag-of-words features (word presence, not frequency)
+- The NLP model uses binary bag-of-words features (word presence, not frequency)
 - Numerical stability is ensured through probability clipping in the objective function
 - The visualization helps identify convergence and overfitting patterns
 - This is an educational implementation built to understand logistic regression's inner functioning
