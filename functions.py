@@ -15,7 +15,7 @@ def gradient(Xi: np.ndarray, Yi: np.ndarray, theta: np.ndarray):
     grad = -(Yi - u) * Xi # gradient
     return grad
 
-def plot_nlls(num_epochs: list[int], train_nlls: list[float], val_nlls: list[float], fig_size=(6.4, 4.8)) -> None:
+def plot_nlls(num_epochs: list[int], train_nlls: list[float], val_nlls: list[float], fig_size=(6.4, 4.8)):
     
     if not os.path.isdir('./figures'):
         os.mkdir('./figures')
