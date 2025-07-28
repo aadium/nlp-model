@@ -1,6 +1,6 @@
 # NLP Sentiment Analysis Model
 
-A machine learning project implementing logistic regression for binary sentiment analysis on movie reviews using Python and scikit-learn.
+A machine learning project implementing logistic regression from scratch for binary sentiment analysis on movie reviews using Python and scikit-learn.
 
 ## Overview
 
